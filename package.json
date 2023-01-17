@@ -1,0 +1,35 @@
+{
+  "name": "clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "jsnext:main": "dist/index.esm.js",
+  "module": "dist/index.esm.js",
+  "scripts": {
+    "build:self": "rollup -c config/rollup.config.js",
+    "build:esm": "rollup -c config/rollup.config.esm.js",
+    "build:aio": "rollup -c config/rollup.config.aio.js",
+    "build": "npm run build:self && npm run build:esm && npm run build:aio",
+    "test": "cross-env NODE_ENV=test nyc mocha",
+    "test:puppeteer": "node test/browser/puppeteer.js"
+  },
+  "keywords": [],
+  "author": "filway",
+  "license": "MIT",
+  "sideEffects": false,
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "babel-plugin-istanbul": "^5.1.0",
+    "cross-env": "^5.2.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^3.5.3",
+    "mocha-jsdom": "^2.0.0",
+    "nyc": "^13.1.0",
+    "puppeteer": "^19.5.2",
+    "rollup": "^0.57.1",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-node-resolve": "^3.0.3"
+  }
+}
